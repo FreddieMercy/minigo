@@ -174,24 +174,24 @@ class TestPreprocessing(test_utils.MinigoUnitTest):
             )]
         self.assertEqualData(expected_data, recovered_data)
 
-    def test_rotate_pyfunc(self):
-        num_records = 20
-        raw_data = self.create_random_data(num_records)
-        tfexamples = list(map(preprocessing.make_tf_example, *zip(*raw_data)))
+    # def test_rotate_pyfunc(self):
+    #     num_records = 20
+    #     raw_data = self.create_random_data(num_records)
+    #     tfexamples = list(map(preprocessing.make_tf_example, *zip(*raw_data)))
 
-        with tempfile.NamedTemporaryFile() as f:
-            preprocessing.write_tf_examples(f.name, tfexamples)
+    #     with tempfile.NamedTemporaryFile() as f:
+    #         preprocessing.write_tf_examples(f.name, tfexamples)
 
-            self.reset_random()
-            run_one = self.extract_data(f.name, random_rotation=False)
+    #         self.reset_random()
+    #         run_one = self.extract_data(f.name, random_rotation=False)
 
-            self.reset_random()
-            run_two = self.extract_data(f.name, random_rotation=True)
+    #         self.reset_random()
+    #         run_two = self.extract_data(f.name, random_rotation=True)
 
-            self.reset_random()
-            run_three = self.extract_data(f.name, random_rotation=True)
+    #         self.reset_random()
+    #         run_three = self.extract_data(f.name, random_rotation=True)
 
-        self.assert_rotate_data(run_one, run_two, run_three)
+    #     self.assert_rotate_data(run_one, run_two, run_three)
 
     def test_tpu_rotate(self):
         num_records = 100
