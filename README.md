@@ -128,7 +128,7 @@ To run individual modules
 
 ```
 BOARD_SIZE=9 python3 tests/run_tests.py test_go
-BOARD_SIZE=19 python3 tests/run_tests.py test_mcts
+BOARD_SIZE=9 python3 tests/run_tests.py test_mcts
 ```
 
 Automated Tests
@@ -283,6 +283,8 @@ pipeline are using the same network configuration.
 
 All local paths in the examples can be replaced with `gs://` GCS paths, and the
 Kubernetes-orchestrated version of the reinforcement learning loop uses GCS.
+
+(Note: remember to set ```BOARD_SIZE```)
 
 Bootstrap
 ---------
