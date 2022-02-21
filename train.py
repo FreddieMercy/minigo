@@ -169,7 +169,7 @@ class UpdateRatioSessionHook(tf.train.SessionRunHook):
             self.before_weights = None
 
 
-def train(*tf_records: "Records to train on"):
+def train(*tf_records):
     """Train on examples."""
     tf.logging.set_verbosity(tf.logging.INFO)
     estimator = dual_net.get_estimator()
